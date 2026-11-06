@@ -59,7 +59,6 @@ header h1 {
 @keyframes shine {
   to { background-position: 200% center; }
 }
-
 nav a {
   position: relative;
   display: inline-block;
