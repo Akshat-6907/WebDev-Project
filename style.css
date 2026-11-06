@@ -1,0 +1,247 @@
+/* ---------- THEME VARIABLES ---------- */
+:root {
+  --black: #0d0d0d;
+  --white: #ffffff;
+  --red: #e10600;
+  --red-dark: #8f0400;
+  --glow: rgba(225, 6, 0, 0.45);
+  --font-main: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- BASE ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* jump links (#deltech etc.) won't hide under the sticky header */
+section, [id] {
+  scroll-margin-top: 110px;
+}
+
+/* ---------- HEADER + NAV ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 16px 20px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--red);
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--red), var(--black), var(--red));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  margin: 0 12px;
+  padding: 4px 0;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- DIVIDERS ---------- */
+hr {
+  border: none;
+  height: 1px;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+section h2 {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid var(--red);
+}
+
+section h3 {
+  margin: 45px 0 15px;
+  padding-left: 12px;
+  border-left: 4px solid var(--red);
+  color: var(--black);
+  letter-spacing: 1px;
+}
+
+p {
+  color: rgba(13, 13, 13, 0.85);
+}
+
+/* highlight the outlet when you click its link */
+section:target {
+  animation: targetGlow 1.5s ease;
+}
+
+
+/* ---------- LINKS ---------- */
+a {
+  color: var(--red);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--black);
+  text-shadow: 0 0 8px var(--glow);
+}
+
+/* ---------- TABLES ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--red-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+thead th {
+  background: var(--red);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border-bottom: 2px solid var(--red-dark);
+}
+
+tbody tr {
+  transition: 0.25s;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+tbody tr:hover {
+  background: rgba(225, 6, 0, 0.12);
+}
+
+/* price column: 3rd cell in every row */
+td:nth-child(3) {
+  color: var(--red);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* ---------- BACK TO TOP BUTTON ---------- */
+.back-to-top {
+  display: inline-block;
+  margin: 15px 0 0;
+  padding: 8px 18px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.back-to-top:hover {
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--red-dark);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 700px) {
+  header h1 { font-size: 1.2rem; letter-spacing: 1px; }
+  nav a { margin: 0 6px; font-size: 0.75rem; }
+  th, td { padding: 8px; font-size: 0.8rem; }
+}
+
+/* ---------- RESPECT REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
