@@ -5,7 +5,8 @@
   --red: #e10600;
   --red-dark: #8f0400;
   --glow: rgba(225, 6, 0, 0.45);
-  --font-main: "Segoe UI", Arial, sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
 }
 
 /* ---------- BASE ---------- */
@@ -17,9 +18,15 @@ body {
   margin: 0;
   background: var(--white);
   color: var(--black);
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   line-height: 1.6;
 }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
 
 ::selection {
   background: var(--red);
